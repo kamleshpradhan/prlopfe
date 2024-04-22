@@ -8,18 +8,29 @@ import { useState, useEffect } from "react"
 import axios from "axios";
 export default function BrokerInfo() {
     const router = useRouter();
-    const [brokerInfo, setbrokerInfo] = useState({});
+    const [brokerInfo, setbrokerInfo] = useState({
+        "id": "407d9dd5-53c8-4c5c-8580-23c9b92e66d3",
+        "name": "Sam",
+        "type": "Prinipal Agent",
+        "ratings": 3,
+        "properties": 2,
+        "image": "/download2.jpg"
+    });
     useEffect(() => {
         getBrokerData();
     }, [])
-    async function getBrokerData(){
-        const resp = await axios.get(`http://localhost:8000/brokerData/${router.query.info}`)
-        if(resp && resp.data){
-            console.log(resp.data[0])
-            setbrokerInfo(resp.data[0]);
+    async function getBrokerData() {
+        try {
+            const resp = await axios.get(`http://localhost:8000/brokerData/${router.query.info}`)
+            if (resp && resp.data) {
+                console.log(resp.data[0])
+                setbrokerInfo(resp.data[0]);
+            }
+        } catch (err) {
+            console.log(err);
         }
     }
-    console.log(router.query.info,brokerInfo)
+    console.log(router.query.info, brokerInfo)
     const reviews = [{
         reviewer: "Emily Garcia",
         review: "My experience with Miranda was, unfortunately, disappointing. She seemed more interested in making a quick sale than understanding my needs. Michael pressured me to put offers on properties that weren't a good fit, and his communication was inconsistent. I ended up finding a house on my own.",

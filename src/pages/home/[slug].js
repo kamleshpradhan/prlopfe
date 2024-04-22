@@ -3,13 +3,41 @@ import { useRouter } from "next/router"
 import styles from "../../styles/homedetails.module.css"
 import Nav from "@/components/Nav";
 import Image from "next/image";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 export default function HomeDetails() {
     const router = useRouter();
     // console.log(router.query.slug)
     // console.log(router);
-    const [brokerData,setBrokerData] = useState([]);
+    const [brokerData, setBrokerData] = useState([{
+        "id": "407d9dd5-53c8-4c5c-8580-23c9b92e66d3",
+        "name": "Sam",
+        "type": "Prinipal Agent",
+        "ratings": 3,
+        "properties": 2,
+        "image": "/download2.jpg"
+    }, {
+        "id": "2b295882-4662-4187-9d02-1f941294266e",
+        "name": "Jack",
+        "type": "Prinipal Agent",
+        "ratings": 4,
+        "properties": 1,
+        "image": "/download.jpg"
+    }, {
+        "id": "0cb33a04-6d80-45b8-8b1a-108d086cbc1e",
+        "name": "Samuel",
+        "type": "Prinipal Agent",
+        "ratings": 4,
+        "properties": 7,
+        "image": "/image2.jpg"
+    }, {
+        "id": "edcb3a69-f80e-4ffd-9223-15e4412cebb6",
+        "name": "Miranda",
+        "type": "Prinipal Agent",
+        "ratings": 2,
+        "properties": 8,
+        "image": "/image.jpg"
+    }]);
     // const brokerData = [{
     //     id: "Broker 1",
     //     name: "Sam",
@@ -39,14 +67,18 @@ export default function HomeDetails() {
     //     properties: 8,
     //     image: "/image.jpg"
     // }]
-    useEffect(()=>{
+    useEffect(() => {
         getBrokerData();
-    },[])
-    async function getBrokerData(){
-        const data = await axios.get("http://localhost:8000/brokerData");
-        console.log(data.data);
-        if(data.data && data.data.length >0){
-            setBrokerData(data.data)
+    }, [])
+    async function getBrokerData() {
+        try {
+            const data = await axios.get("http://localhost:8000/brokerData");
+            console.log(data.data);
+            if (data.data && data.data.length > 0) {
+                setBrokerData(data.data)
+            }
+        } catch (err) {
+
         }
     };
     return (
@@ -85,7 +117,7 @@ export default function HomeDetails() {
                 <div className={styles.brokerdiv}>
                     {brokerData.map((e) => {
                         return (
-                            <div key={e.broker_id} onClick={()=>{router.push(`/broker/${e.broker_id}`)}} className={styles.brokerinfo}>
+                            <div key={e.broker_id} onClick={() => { router.push(`/broker/${e.broker_id}`) }} className={styles.brokerinfo}>
                                 <Image className={styles.broimage} src={e.image} width={100} height={100} alt="bedroom"></Image>
                                 <div className={styles.broinfo}>
                                     <p className={styles.broname}>{e.name}</p>
@@ -101,30 +133,30 @@ export default function HomeDetails() {
                 </div>
                 <p className={styles.heading}>Amenities</p>
                 <div className={styles.require}>
-               
+
                     <div className={styles.brokerinfo}>
-                    <Image className={styles.brosimage} src="/school.svg"  width={100} height={100} alt="bedroom"></Image>
-                    <p className={styles.brosrat}><span className={styles.locid}>3.3</span> Miles</p>
+                        <Image className={styles.brosimage} src="/school.svg" width={100} height={100} alt="bedroom"></Image>
+                        <p className={styles.brosrat}><span className={styles.locid}>3.3</span> Miles</p>
                     </div>
-                    <div  className={styles.brokerinfo}>
-                    <Image className={styles.brosimage} src="/bus.svg" width={100} height={100} alt="bedroom"></Image>
-                    <p className={styles.brosrat}><span className={styles.locid}>2.3</span> Miles</p>
+                    <div className={styles.brokerinfo}>
+                        <Image className={styles.brosimage} src="/bus.svg" width={100} height={100} alt="bedroom"></Image>
+                        <p className={styles.brosrat}><span className={styles.locid}>2.3</span> Miles</p>
                     </div>
-                    <div  className={styles.brokerinfo}>
-                    <Image className={styles.brosimage} src="/airport.svg" width={100} height={100} alt="bedroom"></Image>
-                    <p className={styles.brosrat}><span className={styles.locid}>13.2</span> Miles</p>
+                    <div className={styles.brokerinfo}>
+                        <Image className={styles.brosimage} src="/airport.svg" width={100} height={100} alt="bedroom"></Image>
+                        <p className={styles.brosrat}><span className={styles.locid}>13.2</span> Miles</p>
                     </div>
-                    <div  className={styles.brokerinfo}>
-                    <Image className={styles.brosimage} src="/railway.svg" width={100} height={100} alt="bedroom"></Image>
-                    <p className={styles.brosrat}><span className={styles.locid}>12.4</span> Miles</p>
+                    <div className={styles.brokerinfo}>
+                        <Image className={styles.brosimage} src="/railway.svg" width={100} height={100} alt="bedroom"></Image>
+                        <p className={styles.brosrat}><span className={styles.locid}>12.4</span> Miles</p>
                     </div>
-                    <div  className={styles.brokerinfo}>
-                    <Image className={styles.brosimage} src="/hospital.svg" width={100} height={100} alt="bedroom"></Image>
-                    <p className={styles.brosrat}><span className={styles.locid}>7.5</span> Miles</p>
+                    <div className={styles.brokerinfo}>
+                        <Image className={styles.brosimage} src="/hospital.svg" width={100} height={100} alt="bedroom"></Image>
+                        <p className={styles.brosrat}><span className={styles.locid}>7.5</span> Miles</p>
                     </div>
-                    <div  className={styles.brokerinfo}>
-                    <Image className={styles.brosimage} src="/vegetables.svg" width={100} height={100} alt="bedroom"></Image>
-                    <p className={styles.brosrat}><span className={styles.locid}>1.1</span> Miles</p>
+                    <div className={styles.brokerinfo}>
+                        <Image className={styles.brosimage} src="/vegetables.svg" width={100} height={100} alt="bedroom"></Image>
+                        <p className={styles.brosrat}><span className={styles.locid}>1.1</span> Miles</p>
                     </div>
                 </div>
             </div>

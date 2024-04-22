@@ -1,13 +1,43 @@
 "use client";
 import styles from "../../styles/page.module.css"
 import Nav from "@/components/Nav"
-import { useState,useEffect } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 export default function Test() {
     const [show, setShow] = useState(true);
-    const [houseData,setHouseData] = useState([]);
+    const [houseData, setHouseData] = useState([{
+        "image": "/image.webp",
+        "location": "Deals Gateway, London,",
+        "price": 1500,
+        "available": "Available from 3rd May 2024"
+    }, {
+        "image": "/image1.webp",
+        "location": "Lampton Road, Hounslow,",
+        "price": 2000,
+        "available": "Under Offer"
+    }, {
+        "image": "/image2.webp",
+        "location": "Yiewsley, West Drayton, UB7",
+        "price": 2500,
+        "available": "Available from 27th June 2024"
+    }, {
+        "image": "/image3.webp",
+        "location": "St. Stephens Road, West Drayt",
+        "price": 2000,
+        "available": "Under Offer"
+    }, {
+        "image": "/image4.webp",
+        "location": "Michigan Building, London,",
+        "price": 1800,
+        "available": "Available Now"
+    }, {
+        "image": "/image5.webp",
+        "location": "Marsh Wall, London",
+        "price": 1700,
+        "available": "Under Offer"
+    }]);
     const router = useRouter();
 
     function handleAllow() {
@@ -20,14 +50,17 @@ export default function Test() {
     function handleclose() {
         setShow(false);
     }
-    useEffect(()=>{
+    useEffect(() => {
         getHouseData();
-    },[])
-    async function getHouseData(){
-        const data = await axios.get("http://localhost:8000/houseData");
-        console.log(data.data);
-        if(data.data && data.data.length >0){
-            setHouseData(data.data)
+    }, [])
+    async function getHouseData() {
+        try {
+            const data = await axios.get("http://localhost:8000/houseData");
+            console.log(data.data);
+            if (data.data && data.data.length > 0) {
+                setHouseData(data.data)
+            }
+        } catch (err) {
         }
     };
 
@@ -119,14 +152,14 @@ export default function Test() {
                         <div className={styles.gridh}>
                             {houseData.map((e) => {
                                 return (
-                                    <div onClick={()=>router.push("/home/1")} className={styles.box} key={Math.random() * 1000000}>
+                                    <div onClick={() => router.push("/home/1")} className={styles.box} key={Math.random() * 1000000}>
                                         <div className={styles.availStats}>
                                             <p>{e.available}</p>
                                         </div>
                                         <Image className={styles.houseimg} src={e.image} height={100} width={100} alt="house"></Image>
                                         <div className={styles.houseinfo}>
                                             <p><span className={styles.hprice}>{e.price}£</span> /month</p>
-                                            <p style={{marginTop:"1vh"}}>{e.location}</p>
+                                            <p style={{ marginTop: "1vh" }}>{e.location}</p>
                                             <div className={styles.studimain}>
                                                 <div className={styles.studimains}>
                                                     <Image src="/bedrooms.svg" height={15} width={15} alt="bedroom"></Image>
@@ -142,7 +175,7 @@ export default function Test() {
                             })}
                         </div>
                         <div className={styles.mapdiv}>
-                           <Image src="/map.png" alt="map" height={900} width={630}></Image>
+                            <Image src="/map.png" alt="map" height={900} width={630}></Image>
                         </div>
                     </div>
                 </div>}
