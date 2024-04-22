@@ -1,0 +1,71 @@
+.broinfo{
+    width:80%;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.broname{
+    margin-top: 45px;
+    font-weight: 500;
+    font-family: var(--font-poppins-mono);
+    margin-left: 10px;
+    font-size: 20px;
+}
+.brotype{
+    font-size: 14px;
+    color:#6d737c;
+    font-weight: 400;
+    margin-left: 10px;
+    font-family: var(--font-poppins-mono);
+    font-size: 15px;
+}
+.title{
+    margin-top: 45px;
+    font-weight: 700;
+    font-family: var(--font-poppins-mono);
+    font-size: 25px;
+}
+.brorevlis{
+    margin: auto;
+    width:90%;
+    margin-top: 1%;
+}
+
+.reviewdiv{
+    font-family: var(--font-poppins-mono);
+    margin-left: 1%;
+    width: 100%;
+    margin-bottom: 2%;
+    font-size: 13px;
+}
+.reviewer{
+    display: flex;
+    flex-direction: row;
+}
+.stars{
+    font-size: 13px;
+    margin-top: 1%;
+}
+.reviewrname{
+    margin-left: 2%;
+    margin-top: 1%;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.brobook{
+    margin-top: 3vh;
+    margin-left: 60%;
+    font-size: 14px;
+    width: 28vh;
+    background-color: #18181b;
+    color:#ffff;
+    border-radius: 5px;
+    border: 0px;
+    height:7vh;
+    align-self: flex-end;
+    cursor:pointer
+}

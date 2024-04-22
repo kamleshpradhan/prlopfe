@@ -1,95 +1,58 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-
+"use client"
+import Nav from "@/components/Nav"
+import styles from "../styles/home.module.css"
+import Image from "next/image"
+import { useState } from "react"
+import Link from "next/link"
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
+    const [show,setShow] = useState(false)
+    const data = [
+        { logo: "/logo1.webp", title: "Looking for a tenant" },
+        { logo: "/logo2.webp", title: "Manage my tenancy" },
+        { logo: "/logo3.webp", title: "Want to sell" },
+        { logo: "/logo4.webp", title: "Book a valuation" },
+        { logo: "/logo5.webp", title: "Looking to buy" },
+        { logo: "/logo6.webp", title: "Find a property to rent" }]
+    return (
         <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            <Nav show={show} setShow = {setShow}></Nav>
+            <div className={styles.main}>
+                <Image src="/deck.jpg"
+                    width={100}
+                    height={100}
+                    className={styles.image}
+                    alt="Picture of the author"></Image>
+                <div style={show?{}:{display:'none'}} className={styles.loginMenu}>
+                    <p>Sign Up</p>
+                    <p>Login</p>
+                    <hr/> 
+                    <p>Help</p>
+                    <p>Contact Us</p>
+                    <Link href={'/home/home'}><p className={styles.linktxt}>Page 1</p></Link>
+                </div>
+                <div className={styles.info}>
+                    <h1 className={styles.text1}>Home of The Best Local Estate Agents</h1>
+                    <h3 className={styles.text2}>What would you like to do?</h3>
+                    <div className={styles.boards}>
+                        {data.map((e) => {
+                            return (
+                                <div key={e.title} className={styles.board}>
+                                    <Image src={e.logo} width={100}
+                                        height={100} alt='logo' className={styles.logo}></Image>
+                                    <p className={styles.text3}>{e.title}</p>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
+            </div>
+            <div className={styles.bottomdiv}>
+                    <div className={styles.searchbottom}>
+                        <p className={styles.text3b}>How much rent can you achieve?</p>
+                        <input className={styles.searchinp} placeholder="Enter address (e.g Flat 221 Hoxton Building, N1 3XF)"></input>
+                        <button className={styles.searchbtn}><p className={styles.text3btn}>Instant Valuation</p></button>
+                    </div>
+                </div>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+    )
 }

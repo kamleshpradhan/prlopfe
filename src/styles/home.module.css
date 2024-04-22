@@ -1,0 +1,159 @@
+.notification{
+    margin: auto;
+    height: 40vh;
+    width: 30vw;
+    border: 1px solid red;
+    border-radius: 10px;
+    margin-top: 15vh;
+}
+.main{
+    text-align: center;
+    height: 90vh;
+    width: 100vh;
+    font-family: var(--font-poppins-mono);
+    display: flex;
+    flex-direction: column;
+}
+.image{
+    height: 90vh;
+    width: 100vw;
+    margin: auto;
+    z-index: -10;
+    position: absolute;
+    filter: blur(5px);
+}
+.info{
+    position: absolute;
+    z-index: 1;
+    height: 100vh;
+    width: 100vw;
+}
+.text1{
+    font-size: 56px;
+    font-weight: 600;
+    color:#ffff;
+    margin-top: 15vh;
+}
+
+.text2{
+    font-size: 32px;
+    font-weight: 400;
+    color:#ffff;
+    margin-top: 5vh;
+}
+
+.boards{
+    height: 40%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.board{
+    width: 12%;
+    height: 50%;
+    border: 2px solid #ffff;
+    border-radius: 10px;
+    padding: 1%;
+}
+
+.board:hover{
+    backdrop-filter: blur(10px);
+}
+.logo{
+    height: 36px;
+    width: 36px;
+    margin-top: 3vh;
+}
+.text3{
+    font-size: 16px;
+    font-weight: 400;
+    color:#ffff;
+}
+.bottomdiv{
+    height: 20vh;
+    width: 100vw;
+    background-color: #faf9fc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-family: var(--font-poppins-mono);
+}
+.searchbottom{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.text3b{
+    font-size: 25px;
+    font-weight: 600;
+    color:black;
+}
+
+.searchinp{
+    width: 35%;
+    height: 7vh;
+    border: 1px solid grey;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: var(--font-poppins-mono);
+    padding-left: 1%;
+}
+.searchbtn{
+    width: 15%;
+    height: 7vh;
+    border: 1px solid grey;
+    border-radius: 3px;
+}
+
+.text3btn{
+    font-family: var(--font-poppins-mono);
+    font-size: 18px;
+    font-weight: 600;
+    color:black;
+}
+
+.loginMenu{
+    margin-left: 75vw;
+    height: 35vh;
+    width: 20vw;
+    background-color: #ffff;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    position:absolute;
+    z-index:10;
+    text-align: left;
+}
+.loginMenu>p{
+    margin: 15px 0 15px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: grey
+}
+.loginMenu>p:hover{
+    margin: 15px 0 15px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: black
+}
+
+.linktxt{
+    
+        margin: 15px 0 15px 20px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        color: grey;
+        border:none;
+        text-decoration: none;
+    }

@@ -1,0 +1,152 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+}
+.locinfo{
+    display: flex;
+    flex-direction: column  ;
+    margin-left: 5vw;
+    font-family: var(--font-poppins-mono);
+    font-size: 16px;
+    color: #6b7282
+}
+.locid{
+    font-family: var(--font-poppins-mono);
+    font-size: 17px;
+    color:#000;
+    font-weight: 600;
+}
+.name{
+    font-family: var(--font-poppins-mono);
+    font-size: 34px;
+    color:#000;
+    font-weight: 600;
+    margin-top: 1vh;
+}
+.studimains{
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+    width: 40%;
+    font-weight: 500;
+    margin-top: 1vh;
+}
+.studimains>p{
+    margin-left: 8px;
+    color:#878081;
+}
+.amenities{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width:30%;
+}
+.houseimde{
+    width:100vw;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+.houseimde1{
+    width: 50%;
+}
+.mainimage{
+    width: 90%;
+    height:64vh;
+    margin-left: 5vw;
+    margin-top: 5vh;
+    border-radius: 10px;
+}
+.houseimde2{
+    display: grid;
+    height:65vh;
+    margin-top: 5vh;
+    margin-left: 2vh;
+    border-radius: 10px;
+    grid-template-columns: 45% 45%;
+    width: 50%;
+}
+.minimage{
+    height: 31vh;
+    width: 21vw;
+    border-radius: 10px;
+}
+
+.brokerdiv{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+.brokerinfo{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: auto;
+}
+.broimage{
+    height: 10vh;
+    width: 5vw;
+    border-radius: 100%;
+}
+.brokerinfo{
+    font-family: var(--font-poppins-mono);
+    margin-top: 10px;
+    cursor: pointer;
+}
+.broname{
+    margin-top: 10px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+.brotype{
+    font-size: 14px;
+    color:#6d737c;
+    font-weight: 400;
+    margin-left: 10px;
+}
+.brorat{
+    margin-top: 4vh;
+    margin-left: 7%;
+}
+.bromessage{
+    margin-top: 4vh;
+    margin-left: 7%;
+    text-decoration: underline;
+    font-size: 14px;
+}
+.brobook{
+        margin-top: 3vh;
+        margin-left: 7%;
+        font-size: 14px;
+        width: 25vh;
+        background-color: #18181b;
+        color:#ffff;
+        border-radius: 5px;
+        border: 0px
+}
+.require{
+    display: flex;
+    flex-direction: column;
+    width:30%;
+    margin-left: 5%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.brosimage{
+    height: 5vh;
+    width: 3vw;
+    border-radius: 100%;
+}
+.brosrat{
+    margin-top: 1vh;
+    margin-left: 1%;
+    font-size: 14px;
+}
+.heading{
+    font-family: var(--font-poppins-mono);
+    margin-top: 5vh;
+    margin-left: 5vw;
+    font-size: 20px;
+}
